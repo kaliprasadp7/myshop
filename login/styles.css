@@ -1,0 +1,16 @@
+.login-container{
+    margin: auto;
+    margin-top: 50px;
+    width: 96vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.login-container h1{
+    font-weight: 400;
+}
+.login-container input{
+    height: 40px;
+    font-size: 17px;
+    padding-left: 15px;
+}
