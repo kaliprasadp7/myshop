@@ -20,9 +20,9 @@ function signup() {
 
     if (first_name != '' && last_name != '' && email != '' && password != '' && confirm_password != '') {
         if (password == confirm_password) {
+            let userdata=false;
             if(localStorage.users){
                 let currentArray=JSON.parse(localStorage.getItem("users"));
-            let userdata=false;
             currentArray.forEach((item)=>{
                 if(item.email == email){
                     // checking user email exist or not
