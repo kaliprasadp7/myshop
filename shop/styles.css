@@ -158,7 +158,7 @@ main-content .items .item {
 
 main-content .items .item img {
   max-width: 100%;
-  height: 320px;
+  height: 280px;
 }
 
 main-content .items .item .row {
@@ -192,4 +192,14 @@ main-content .items .item .circle {
   border-radius: 100%;
   margin: 0 5px;
 }
+.product-name{
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  height: 100px;
+}
 
+aside{
+  overflow-y: scroll;
+  padding-bottom: 60px;
+}
