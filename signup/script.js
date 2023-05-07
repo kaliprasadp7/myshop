@@ -20,7 +20,8 @@ function signup() {
 
     if (first_name != '' && last_name != '' && email != '' && password != '' && confirm_password != '') {
         if (password == confirm_password) {
-            let currentArray=JSON.parse(localStorage.getItem("users"));
+            if(localStorage.users){
+                let currentArray=JSON.parse(localStorage.getItem("users"));
             let userdata=false;
             currentArray.forEach((item)=>{
                 if(item.email == email){
@@ -28,6 +29,7 @@ function signup() {
                     userdata=true;
                 }
             })
+            }
 
             if(userdata==true){
                 alert("Email already exists..!");
