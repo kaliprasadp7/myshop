@@ -13,7 +13,7 @@ const search_bar = document.getElementById("search-bar");
 
 if (!localStorage.getItem('currentUser')) {
   // Redirect user to shop page if accesstoken exists and user is trying to access signup page
-  window.location.href = '/';
+  window.location.href = '../';
 }
 
 fetch('https://fakestoreapi.com/products').then(response => response.json()).then(data => {

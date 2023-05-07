@@ -12,7 +12,7 @@ const user_confirm_password = document.getElementById("profile-confirm-password"
 
 if (!localStorage.getItem('currentUser')) {
     // Redirect user to shop page if accesstoken exists and user is trying to access signup page
-    window.location.href = '/';
+    window.location.href = '../';
 }
 user_first_name.value = JSON.parse(localStorage.currentUser).firstname;
 user_last_name.value = JSON.parse(localStorage.currentUser).lastname;
@@ -66,7 +66,7 @@ chang_password_btn.addEventListener("click", function(){
 // user logout and remove currentUser object
 user_logout_btn.addEventListener("click", function(){
     localStorage.removeItem("currentUser");
-    window.location.href="/"
+    window.location.href="../"
 })
 
 
