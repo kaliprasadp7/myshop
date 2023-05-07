@@ -6,6 +6,10 @@ const user_password = document.getElementById("password");
 const user_confirm_password = document.getElementById("confirm-password");
 let users=[];
 
+if (localStorage.getItem('currentUser')) {
+    // Redirect user to shop page if accesstoken exists and user is trying to access signup page
+    window.location.href = '../shop';
+}
 
 function signup() {
     let first_name = user_first_name.value;
@@ -16,22 +20,36 @@ function signup() {
 
     if (first_name != '' && last_name != '' && email != '' && password != '' && confirm_password != '') {
         if (password == confirm_password) {
-            users.push({
-                'first-name': first_name,
-                'last-name': last_name,
-                'email': email,
-                'password': password,
-            });
-            document.getElementById("error").style.display = "none";
-            document.getElementById("success").style.display = "block";
+            let currentArray=JSON.parse(localStorage.getItem("users"));
+            let userdata=false;
+            currentArray.forEach((item)=>{
+                if(item.email == email){
+                    // checking user email exist or not
+                    userdata=true;
+                }
+            })
 
-            saveInfo(users);
+            if(userdata==true){
+                alert("Email already exists..!");
+            }else{
+                users.push({
+                    'firstname': first_name,
+                    'lastname': last_name,
+                    'email': email,
+                    'password': password,
+                });
+                document.getElementById("error").style.display = "none";
+                document.getElementById("success").style.display = "block";
+    
+                saveInfo(users);
+    
+                user_first_name.value = '';
+                user_last_name.value = '';
+                user_email.value = '';
+                user_password.value = '';
+                user_confirm_password.value = '';
+            }
 
-            user_first_name.value = '';
-            user_last_name.value = '';
-            user_email.value = '';
-            user_password.value = '';
-            user_confirm_password.value = '';
         }else {
             alert("Password and Confirm Password must be same");
         }

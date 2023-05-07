@@ -3,12 +3,10 @@ const login_password=document.getElementById("login-password");
 const login_btn=document.getElementById("login-btn");
 let currentUser={};
 
-// Check if accesstoken exists in local storage and user is trying to access the signup page
+// Check if accesstoken exists in local storage and user is trying to access the login page
 if (localStorage.getItem('currentUser')) {
     // Redirect user to shop page if accesstoken exists and user is trying to access signup page
     window.location.href = '../shop';
-    console.log(window.location.pathname)
-
 }
 
 // Check if accesstoken exists in local storage
